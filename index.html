@@ -6,7 +6,7 @@
 <title>Avaliação de Desempenho — XCL</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@h400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
@@ -375,12 +375,8 @@ document.getElementById('form').addEventListener('submit', async function(e) {
   for (const [k, v] of new FormData(form).entries()) data[k] = v;
 
   try {
-    if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxke5okJVNLJuYN5MqjB0NlepOuxlI28OWAtIRN2LJ4QK1G8sKSdBypn3sMBvU_Yp3V/exec') {
-      const params = new URLSearchParams(data);       await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method:'GET', mode:'no-cors' });
-    } else {
-      console.log('Dados:', data);
-      await new Promise(r => setTimeout(r, 600));
-    }
+    const params = new URLSearchParams(data);
+    await fetch(APPS_SCRIPT_URL + '?' + params.toString(), { method:'GET', mode:'no-cors' });
     // Show success — hide all form sections
     for (const el of form.querySelectorAll('.page > *')) {
       if (el.id !== 'success-screen' && el.id !== 'closing-block') el.style.display = 'none';
