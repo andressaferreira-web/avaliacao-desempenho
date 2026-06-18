@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -289,7 +289,7 @@ const COMPETENCIAS = [
 ];
 
 // ── URL do Google Apps Script — substitua após criar o script ──
-const APPS_SCRIPT_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxke5okJVNLJuYN5MqjB0NlepOuxlI28OWAtIRN2LJ4QK1G8sKSdBypn3sMBvU_Yp3V/exec';
 
 function radioRow(name, label, num, accent) {
   const cols = [1,2,3,4,5].map(v =>
@@ -375,7 +375,7 @@ document.getElementById('form').addEventListener('submit', async function(e) {
   for (const [k, v] of new FormData(form).entries()) data[k] = v;
 
   try {
-    if (APPS_SCRIPT_URL !== 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+    if (APPS_SCRIPT_URL !== 'https://script.google.com/macros/s/AKfycbxke5okJVNLJuYN5MqjB0NlepOuxlI28OWAtIRN2LJ4QK1G8sKSdBypn3sMBvU_Yp3V/exec') {
       await fetch(APPS_SCRIPT_URL, { method:'POST', body: JSON.stringify(data), mode:'no-cors' });
     } else {
       console.log('Dados:', data);
